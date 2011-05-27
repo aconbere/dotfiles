@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/etc/nginx.orig'
+let g:netrw_dirhist_2='/home/aconbere/Packages/android/sdk/samples/android-10/AccelerometerPlay'
+let g:netrw_dirhist_3='/home/aconbere/Packages/android/sdk/samples/android-10'
+let g:netrw_dirhist_4='/home/aconbere/Packages/android/sdk/samples/android-10/AccelerometerPlay'
+let g:netrw_dirhist_5='/home/aconbere/Projects/javascript/boxer/lib/boxer'
+let g:netrw_dirhist_6='/home/aconbere/Projects/wtf/posts/2011/4/22/blogtalk2008-snp-webcamp-conclussion'
