@@ -1,6 +1,10 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 
+if has("gui_running") 
+  set guioptions=aAic
+endif
+
 set gdefault " %s///g by default!
 set nocompatible
 set hidden " hide buffers instead of closing them
@@ -48,4 +52,5 @@ filetype plugin indent on
 colorscheme vividchalk
 syntax on
 
-set dir^=//home/aconbere/.vimswap
+set backupdir^=~/.vimswap
+set directory^=~/.vimswap
