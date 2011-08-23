@@ -22,6 +22,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title " change the terminal's title
 
 set nobackup
+set backupdir^=~/.vimswap
+set directory^=~/.vimswap
 
 set softtabstop=2
 set shiftwidth=2
@@ -40,7 +42,7 @@ nmap <silent> <C-h> <C-w>h
 nmap <silent> <C-j> <C-w>j
 nmap <silent> <C-k> <C-w>k
 nmap <silent> <C-l> <C-w>l
-nmap <leader>t :CommandT<CR>
+
 " Get rid of help
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -52,5 +54,3 @@ filetype plugin indent on
 colorscheme vividchalk
 syntax on
 
-set backupdir^=~/.vimswap
-set directory^=~/.vimswap

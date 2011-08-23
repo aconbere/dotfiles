@@ -1,0 +1,5 @@
+.vim/.netrwhist
+*.hi
+*.o
+*.errors
+*.pyc

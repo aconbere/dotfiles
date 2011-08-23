@@ -1,0 +1,4 @@
+--ignore-dir=vendor
+--ignore-dir=db
+--type-set=haml=.haml
+--type-set=sass=.scss
