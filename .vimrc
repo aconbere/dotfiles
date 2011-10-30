@@ -7,7 +7,7 @@ endif
 
 set gdefault " %s///g by default!
 set nocompatible
-set hidden " hide buffers instead of closing them
+"set hidden " hide buffers instead of closing them
 set autoindent
 set copyindent
 set ignorecase
