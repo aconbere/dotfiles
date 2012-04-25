@@ -1,0 +1,14 @@
+[user]
+  name = Anders Conbere
+  email = aconbere@gmail.com
+
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+
+[color]
+  diff = true
+  grep = true
+
+[push]
+  default = upstream
