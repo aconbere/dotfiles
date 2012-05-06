@@ -3,3 +3,4 @@
 *.o
 *.errors
 *.pyc
+.xmonad/xmonad-x86_64-linux
