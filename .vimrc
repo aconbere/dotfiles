@@ -37,7 +37,7 @@ let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
 let mapleader = ","
 
 nmap <silent> <leader>s :set nolist!<CR>
-nmap <silent> <leader>n :NERDTreeToggle<CR>
+nmap <silent> <leader>n :bn<CR>
 nmap <silent> <C-h> <C-w>h
 nmap <silent> <C-j> <C-w>j
 nmap <silent> <C-k> <C-w>k
