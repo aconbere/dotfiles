@@ -51,6 +51,8 @@ vnoremap <F1> <ESC>
 nnoremap ; :
 
 filetype plugin indent on
-colorscheme vividchalk
-syntax on
 
+se t_Co=256
+set background=dark
+colorscheme solarized
+syntax on
