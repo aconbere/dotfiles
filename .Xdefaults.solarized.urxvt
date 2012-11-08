@@ -1,4 +1,4 @@
-URxvt*font: xft:inconsolata:size=9:antialias=true
+urxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12
 URxvt*scrollBar: false
 URxvt.saveLines: 32767
 URxvt*termName: rxvt

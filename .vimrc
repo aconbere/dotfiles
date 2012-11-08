@@ -1,7 +1,7 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 
-if has("gui_running") 
+if has("gui_running")
   set guioptions=aAic
 endif
 
@@ -37,22 +37,34 @@ let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
 let mapleader = ","
 
 nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>e :set nospell!<CR>
 nmap <silent> <leader>n :bn<CR>
+
 nmap <silent> <C-h> <C-w>h
 nmap <silent> <C-j> <C-w>j
 nmap <silent> <C-k> <C-w>k
 nmap <silent> <C-l> <C-w>l
+
+nmap <silent> <C-M-h> <C-w>H
+nmap <silent> <C-M-j> <C-w>J
+nmap <silent> <C-M-k> <C-w>K
+nmap <silent> <C-M-l> <C-w>L
 
 " Get rid of help
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-nnoremap ; :
+snoremap ; :
 
 filetype plugin indent on
 
-se t_Co=256
+set t_Co=256
 set background=dark
+let g:solarized_contrast="high"
 colorscheme solarized
+"colorscheme vividchalk
 syntax on
+
+set list
+set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
