@@ -21,14 +21,13 @@ PATH="$HOME/bin:$HOME/.cabal/bin:$HOME/Packages/android/sdk/tools:$HOME/Packages
 export EDITOR="vim"
 export PYTHONDONTWRITEBYTECODE=true
 
-keychain ~/.ssh/id_dsa ~/.ssh/id_rsa
+keychain ~/.ssh/id_rsa
 . ~/.keychain/$HOST-sh
 
 alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
 alias screen="screen -U"
 alias ack='ack-grep'
-alias narwhal='cd ~/Projects/ofa/narwhal && workon narwhal'
 alias archspace='cd ~/Projects/scala/archspace'
 
 export NODE_PATH=/usr/local/lib/node_modules
@@ -48,4 +47,5 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt extended_history
 setopt bang_hist
-#setopt vi
+# setopt vi
+unsetopt correct_all
