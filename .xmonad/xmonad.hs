@@ -8,7 +8,7 @@ import System.IO
 
 main = do
     xmproc <- spawnPipe "/home/aconbere/.cabal/bin/xmobar /home/aconbere/.xmobarrc"
-    xmonad 
+    xmonad
         $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "darkgreen", "-xs", "1"] }
         $ defaultConfig {
               terminal = "urxvt"

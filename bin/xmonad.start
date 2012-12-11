@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+/home/aconbere/.cabal/bin/xmonad &
+xmodmap -e "remove Lock = Caps_Lock" &
+xmodmap -e "keysym Caps_Lock = Control_L" &
+xmodmap -e "add Control = Control_L" &
+# xloadimage -onroot -fullscreen /usr/share/backgrounds/xmonad.png &
+xscreensaver -no-splash

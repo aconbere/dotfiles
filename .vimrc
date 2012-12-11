@@ -1,5 +1,4 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 if has("gui_running")
   set guioptions=aAic
@@ -58,13 +57,13 @@ vnoremap <F1> <ESC>
 snoremap ; :
 
 filetype plugin indent on
+syntax on
 
 set t_Co=256
 set background=dark
 let g:solarized_contrast="high"
 colorscheme solarized
 "colorscheme vividchalk
-syntax on
 
 set list
 set listchars=eol:¬,extends:»,tab:▸\ ,trail:›

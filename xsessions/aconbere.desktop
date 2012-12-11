@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=My XMonad
+Comment=Lightweight tiling window manager
+Exec=/home/aconbere/bin/xmonad.start
+Icon=xmonad.png
+Type=XSession
