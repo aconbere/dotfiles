@@ -16,7 +16,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-PATH="$HOME/bin:$HOME/.cabal/bin:$HOME/Packages/android/sdk/tools:$HOME/Packages/android/sdk/platform-tools:$PATH"
+PATH="$HOME/bin:$HOME/.cabal/bin:$PATH"
 
 export EDITOR="vim"
 export PYTHONDONTWRITEBYTECODE=true
@@ -28,18 +28,6 @@ alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
 alias screen="screen -U"
 alias ack='ack-grep'
-alias narwhal='cd ~/Projects/ofa/narwhal && workon narwhal'
-alias archspace='cd ~/Projects/scala/archspace'
-
-export NODE_PATH=/usr/local/lib/node_modules
-export ANDROID_HOME=$HOME/Packages/android/sdk
-GOROOT="$HOME/Packages/go"
-GOARCH="amd64"
-GOOS="linux"
-
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/vert_wrapper
 
 setopt no_share_history
 setopt no_correct
