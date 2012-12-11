@@ -21,7 +21,7 @@ PATH="$HOME/bin:$HOME/.cabal/bin:$PATH"
 export EDITOR="vim"
 export PYTHONDONTWRITEBYTECODE=true
 
-keychain ~/.ssh/id_dsa ~/.ssh/id_rsa
+keychain ~/.ssh/id_rsa
 . ~/.keychain/$HOST-sh
 
 alias profile="vim ~/.zshrc"
