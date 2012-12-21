@@ -16,30 +16,14 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-PATH="$HOME/bin:$HOME/.cabal/bin:$HOME/Packages/android/sdk/tools:$HOME/Packages/android/sdk/platform-tools:$PATH"
-
 export EDITOR="vim"
 export PYTHONDONTWRITEBYTECODE=true
-
-keychain ~/.ssh/id_dsa ~/.ssh/id_rsa
-. ~/.keychain/$HOST-sh
 
 alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
 alias screen="screen -U"
-alias ack='ack-grep'
-alias narwhal='cd ~/Projects/ofa/narwhal && workon narwhal'
-alias archspace='cd ~/Projects/scala/archspace'
-
-export NODE_PATH=/usr/local/lib/node_modules
-export ANDROID_HOME=$HOME/Packages/android/sdk
-GOROOT="$HOME/Packages/go"
-GOARCH="amd64"
-GOOS="linux"
-
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/vert_wrapper
+alias tmux="tmux -u -2"
+alias etsyweb="cd ~/development/Etsyweb"
 
 setopt no_share_history
 setopt no_correct
@@ -48,4 +32,5 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt extended_history
 setopt bang_hist
-#setopt vi
+
+eval $(/home/aconbere/development/DevTools/dbaliases)

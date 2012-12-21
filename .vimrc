@@ -1,5 +1,4 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 if has("gui_running")
   set guioptions=aAic
@@ -12,7 +11,7 @@ set autoindent
 set copyindent
 set ignorecase
 set smartcase " only ignore case if all lower case
-set mouse=a
+"set mouse=a
 set wildmode=list:longest
 set ruler
 
@@ -35,6 +34,7 @@ set pastetoggle=<F2>
 
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
 let mapleader = ","
+let loaded_matchparen = 1
 
 nmap <silent> <leader>s :set nolist!<CR>
 nmap <silent> <leader>e :set nospell!<CR>
@@ -59,12 +59,6 @@ snoremap ; :
 
 filetype plugin indent on
 
-set t_Co=256
-set background=dark
-let g:solarized_contrast="high"
-colorscheme solarized
-"colorscheme vividchalk
 syntax on
 
-set list
-set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
+set encoding=utf-8
