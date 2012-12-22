@@ -34,6 +34,7 @@ set backspace=indent,eol,start
 set pastetoggle=<F2>
 
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
+let g:easytags_on_cursorhold = 0
 let mapleader = ","
 
 nmap <silent> <leader>s :set nolist!<CR>
