@@ -1,5 +1,4 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 if has("gui_running")
   set guioptions=aAic
