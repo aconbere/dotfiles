@@ -1,2 +1,4 @@
 --ignore-dir=vendor
 --ignore-dir=target
+--type-set
+sbt=.sbt
