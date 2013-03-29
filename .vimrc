@@ -12,7 +12,7 @@ set autoindent
 set copyindent
 set ignorecase
 set smartcase " only ignore case if all lower case
-"set mouse=a
+set mouse=a
 set wildmode=list:longest
 set ruler
 

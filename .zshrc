@@ -1,11 +1,11 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="aconbere"
 export CFLAGS="-Wall"
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=`/usr/libexec/java_home`
 
 source $ZSH/oh-my-zsh.sh
 
-PATH="$HOME/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 export EDITOR="vim"
 export PYTHONDONTWRITEBYTECODE=true
