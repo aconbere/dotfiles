@@ -3,58 +3,56 @@
 " Author:      Jan Larres <jan@majutsushi.net>
 " Licence:     Vim licence
 " Website:     http://majutsushi.github.com/tagbar/
-" Version:     2.1
+" Version:     2.5
+
+scriptencoding utf-8
 
 if exists("b:current_syntax")
-  finish
+    finish
 endif
 
-if has('multi_byte') && has('unix') && &encoding == 'utf-8' &&
- \ (empty(&termencoding) || &termencoding == 'utf-8')
-    syntax match TagbarKind  '\([▶▼] \)\@<=[^-+: ]\+[^:]\+$'
-    syntax match TagbarScope '\([▶▼][-+# ]\)\@<=[^*]\+\(\*\?\(([^)]\+)\)\? :\)\@='
+let s:ics = escape(join(g:tagbar_iconchars, ''), ']^\-')
+let s:pattern = '\(^[' . s:ics . '] \?\)\@<=[^-+: ]\+[^:]\+$'
+execute "syntax match TagbarKind '" . s:pattern . "'"
 
-    syntax match TagbarFoldIcon '[▶▼]\([-+# ]\)\@='
+let s:pattern = '\(\S\@<![' . s:ics . '][-+# ]\?\)\@<=[^*(]\+\(\*\?\(([^)]\+)\)\? :\)\@='
+execute "syntax match TagbarScope '" . s:pattern . "'"
 
-    syntax match TagbarAccessPublic    '\([▶▼ ]\)\@<=+\([^-+# ]\)\@='
-    syntax match TagbarAccessProtected '\([▶▼ ]\)\@<=#\([^-+# ]\)\@='
-    syntax match TagbarAccessPrivate   '\([▶▼ ]\)\@<=-\([^-+# ]\)\@='
-elseif has('multi_byte') && (has('win32') || has('win64')) && g:tagbar_usearrows
-    syntax match TagbarKind  '\([▷◢] \)\@<=[^-+: ]\+[^:]\+$'
-    syntax match TagbarScope '\([▷◢][-+# ]\)\@<=[^*]\+\(\*\?\(([^)]\+)\)\? :\)\@='
+let s:pattern = '\S\@<![' . s:ics . ']\([-+# ]\?\)\@='
+execute "syntax match TagbarFoldIcon '" . s:pattern . "'"
 
-    syntax match TagbarFoldIcon '[▷◢]\([-+# ]\)\@='
+let s:pattern = '\(\S\@<![' . s:ics . ' ]\)\@<=+\([^-+# ]\)\@='
+execute "syntax match TagbarVisibilityPublic '" . s:pattern . "'"
+let s:pattern = '\(\S\@<![' . s:ics . ' ]\)\@<=#\([^-+# ]\)\@='
+execute "syntax match TagbarVisibilityProtected '" . s:pattern . "'"
+let s:pattern = '\(\S\@<![' . s:ics . ' ]\)\@<=-\([^-+# ]\)\@='
+execute "syntax match TagbarVisibilityPrivate '" . s:pattern . "'"
 
-    syntax match TagbarAccessPublic    '\([▷◢ ]\)\@<=+\([^-+# ]\)\@='
-    syntax match TagbarAccessProtected '\([▷◢ ]\)\@<=#\([^-+# ]\)\@='
-    syntax match TagbarAccessPrivate   '\([▷◢ ]\)\@<=-\([^-+# ]\)\@='
-else
-    syntax match TagbarKind  '\([-+] \)\@<=[^-+: ]\+[^:]\+$'
-    syntax match TagbarScope '\([-+][-+# ]\)\@<=[^*]\+\(\*\?\(([^)]\+)\)\? :\)\@='
+unlet s:pattern
 
-    syntax match TagbarFoldIcon '[-+]\([-+# ]\)\@='
+syntax match TagbarNestedKind '^\s\+\[[^]]\+\]$'
+syntax match TagbarComment    '^".*'
+syntax match TagbarType       ' : \zs.*'
+syntax match TagbarSignature  '(.*)'
+syntax match TagbarPseudoID   '\*\ze :'
 
-    syntax match TagbarAccessPublic    '\([-+ ]\)\@<=+\([^-+# ]\)\@='
-    syntax match TagbarAccessProtected '\([-+ ]\)\@<=#\([^-+# ]\)\@='
-    syntax match TagbarAccessPrivate   '\([-+ ]\)\@<=-\([^-+# ]\)\@='
-endif
-
-syntax match TagbarComment   '^".*'
-syntax match TagbarType      ' : \zs.*'
-syntax match TagbarSignature '(.*)'
-syntax match TagbarPseudoID  '\*\ze :'
-
-highlight default link TagbarComment   Comment
-highlight default link TagbarKind      Identifier
-highlight default link TagbarScope     Title
-highlight default link TagbarType      Type
-highlight default link TagbarSignature SpecialKey
-highlight default link TagbarPseudoID  NonText
-highlight default link TagbarFoldIcon  Statement
-highlight default link TagbarHighlight Search
+highlight default link TagbarComment    Comment
+highlight default link TagbarKind       Identifier
+highlight default link TagbarNestedKind TagbarKind
+highlight default link TagbarScope      Title
+highlight default link TagbarType       Type
+highlight default link TagbarSignature  SpecialKey
+highlight default link TagbarPseudoID   NonText
+highlight default link TagbarFoldIcon   Statement
+highlight default link TagbarHighlight  Search
 
 highlight default TagbarAccessPublic    guifg=Green ctermfg=Green
 highlight default TagbarAccessProtected guifg=Blue  ctermfg=Blue
 highlight default TagbarAccessPrivate   guifg=Red   ctermfg=Red
+highlight default link TagbarVisibilityPublic    TagbarAccessPublic
+highlight default link TagbarVisibilityProtected TagbarAccessProtected
+highlight default link TagbarVisibilityPrivate   TagbarAccessPrivate
 
 let b:current_syntax = "tagbar"
+
+" vim: ts=8 sw=4 sts=4 et foldenable foldmethod=marker foldcolumn=1

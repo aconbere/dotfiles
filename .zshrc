@@ -14,6 +14,9 @@ alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
 alias screen="screen -U"
 alias tmux="TERM=screen-256color-bce tmux -u -2"
+alias tl="tmux list-sessions"
+alias ta="tmux attach-session -t"
+alias tm="tmux"
 
 setopt no_share_history
 setopt no_correct
