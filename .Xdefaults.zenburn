@@ -1,15 +1,12 @@
 URxvt.foreground: #dcdccc
-URxvt*termName:   rxvt
 
-!URxvt.depth: 32
-!URxvt*background: #3f3f3f
 urxvt*background: #000000
 urxvt*foreground: #cccccc
 
 URxvt.saveLines:32767
 URxvt.scrollBar: false
 
-urxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=12
 
 URxvt*colorUL: #c5f779
 URxvt*underlineColor: #c5f779

@@ -1,10 +1,30 @@
+set nocompatible
 filetype off
-call pathogen#runtime_append_all_bundles()
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
 
 if has("gui_running")
   set guioptions=aAic
+  set clipboard=unnamed
 endif
 
+set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
 set gdefault " %s///g by default!
 set nocompatible
 "set hidden " hide buffers instead of closing them
@@ -32,8 +52,13 @@ set smarttab
 set expandtab
 set backspace=indent,eol,start
 set pastetoggle=<F2>
+set t_Co=256
+set background=dark
+set list
+set listchars=tab:»·,trail:·
 
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
+let g:easytags_on_cursorhold = 0
 let mapleader = ","
 
 nmap <silent> <leader>s :set nolist!<CR>
@@ -59,11 +84,8 @@ snoremap ; :
 
 filetype plugin indent on
 
-set t_Co=256
-set background=dark
-colorscheme solarized
-"colorscheme vividchalk
+let g:solarized_contrast="high"
+"colorscheme solarized
+colorscheme vividchalk
 syntax on
 
-set list
-set listchars=eol:¬,extends:»,tab:▸\ ,trail:›

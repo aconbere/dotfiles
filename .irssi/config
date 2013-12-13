@@ -19,8 +19,9 @@ chatnets = {
 };
 
 channels = (
-  { name = "#ofa"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#scala"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#clojure"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##remotes"; chatnet = "freenode"; autojoin = "yes"; },
 );
 
 aliases = {
