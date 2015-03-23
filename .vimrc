@@ -1,19 +1,34 @@
 set nocompatible
+set modeline
+set modelines=5
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
+set shell=/bin/bash
+set backupdir=~/.swp
+set directory=~/.swp
 call vundle#rc()
+
 
 Bundle 'gmarik/vundle'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-leiningen'
+Bundle 'tpope/vim-classpath'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
+Bundle 'fatih/vim-go'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'guns/vim-clojure-static'
+Bundle 'guns/vim-sexp'
+Bundle 'tpope/vim-fireplace'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-highlight'
 
 if has("gui_running")
   set guioptions=aAic
@@ -42,9 +57,9 @@ set directory^=~/.vimswap
 
 set softtabstop=2
 set shiftwidth=2
+set expandtab
 set tabstop=2
 set smarttab
-set expandtab
 set backspace=indent,eol,start
 set pastetoggle=<F2>
 set t_Co=256
@@ -54,7 +69,9 @@ set background=dark
 
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
 let g:easytags_on_cursorhold = 0
+"let g:syntastic_disabled_filetypes = ['java']
 let mapleader = ","
+let maplocalleader = "\\"
 
 nmap <silent> <leader>s :set nolist!<CR>
 nmap <silent> <leader>e :set nospell!<CR>
@@ -70,6 +87,8 @@ nmap <silent> <C-M-j> <C-w>J
 nmap <silent> <C-M-k> <C-w>K
 nmap <silent> <C-M-l> <C-w>L
 
+map <F7> mzgg=G`z<CR>
+
 " Get rid of help
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -80,7 +99,28 @@ snoremap ; :
 filetype plugin indent on
 
 let g:solarized_contrast="high"
-colorscheme solarized
-"colorscheme vividchalk
+"colorscheme solarized
+colorscheme vividchalk
 syntax on
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:clojure_fuzzy_indent = 1
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^fnk', '^dfnk']
+let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
+
+"better solarized rainbow parens
+let g:rbpt_colorpairs = [
+  \ [ '13', '#6c71c4'],
+  \ [ '5',  '#d33682'],
+  \ [ '1',  '#dc322f'],
+  \ [ '9',  '#cb4b16'],
+  \ [ '3',  '#b58900'],
+  \ [ '2',  '#859900'],
+  \ [ '6',  '#2aa198'],
+  \ [ '4',  '#268bd2'],
+  \ ]
 
