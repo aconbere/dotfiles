@@ -1,34 +1,39 @@
 set nocompatible
 set modeline
 set modelines=5
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
 set shell=/bin/bash
 set backupdir=~/.swp
 set directory=~/.swp
-call vundle#rc()
+set encoding=utf-8
 
+filetype off
 
-Bundle 'gmarik/vundle'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-leiningen'
-Bundle 'tpope/vim-classpath'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'godlygeek/tabular'
-Bundle 'majutsushi/tagbar'
-Bundle 'fatih/vim-go'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-sexp'
-Bundle 'tpope/vim-fireplace'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'guns/vim-clojure-highlight'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-classpath'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
+Plugin 'fatih/vim-go'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-fireplace'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'rust-lang/rust.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 if has("gui_running")
   set guioptions=aAic
@@ -37,7 +42,7 @@ endif
 
 set gdefault " %s///g by default!
 set nocompatible
-"set hidden " hide buffers instead of closing them
+set hidden " hide buffers instead of closing them
 set autoindent
 set copyindent
 set ignorecase
@@ -69,7 +74,6 @@ set background=dark
 
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
 let g:easytags_on_cursorhold = 0
-"let g:syntastic_disabled_filetypes = ['java']
 let mapleader = ","
 let maplocalleader = "\\"
 
@@ -94,12 +98,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-snoremap ; :
-
-filetype plugin indent on
-
-let g:solarized_contrast="high"
-"colorscheme solarized
 colorscheme vividchalk
 syntax on
 
@@ -123,4 +121,3 @@ let g:rbpt_colorpairs = [
   \ [ '6',  '#2aa198'],
   \ [ '4',  '#268bd2'],
   \ ]
-

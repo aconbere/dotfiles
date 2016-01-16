@@ -30,8 +30,8 @@ alias ta="tmux attach-session -t"
 alias tn="tmux new-session -n"
 alias tm="tmux"
 
-alias rstart="bundle install && foreman start"
-alias rtest="bundle install && bundle exec rake spec"
+alias rstart="rm -rf tmp/cache; npm install; bundle install; be rails server"
+alias rtest="rm -rf tmp/cache; npm install; bundle install && bundle exec rake spec"
 alias rtestjs="bundle install && bundle exec rake spec:javascript"
 
 setopt no_share_history
@@ -54,3 +54,4 @@ export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
