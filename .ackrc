@@ -1,5 +1,7 @@
 --ignore-dir=vendor
 --ignore-dir=target
+--ignore-dir=tags
+--ignore-file=is:tags
 --type-set
 sbt=.sbt
 --type-set

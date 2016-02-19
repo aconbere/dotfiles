@@ -47,7 +47,7 @@ set autoindent
 set copyindent
 set ignorecase
 set smartcase " only ignore case if all lower case
-set mouse=a
+" set mouse=a
 set wildmode=list:longest
 set ruler
 
@@ -97,6 +97,7 @@ map <F7> mzgg=G`z<CR>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+nnoremap <leader>. :CtrlPTag<cr>
 
 colorscheme vividchalk
 syntax on

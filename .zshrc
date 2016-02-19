@@ -1,9 +1,6 @@
 #export SHELL="/user/local/bin/zsh"
-#export ZSH=$HOME/.oh-my-zsh
-#export ZSH_THEME="robbyrussell"
-#source $ZSH/oh-my-zsh.sh
 
-source "$HOME/Packages/antigen/antigen.zsh"
+source "$HOME/Projects/antigen.zsh"
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle heroku
@@ -14,9 +11,9 @@ antigen apply
 export CFLAGS="-Wall"
 export JAVA_HOME=`/usr/libexec/java_home`
 
-PATH="$HOME/bin:$HOME/bin/maven/apache-maven-3.1.1/bin:$HOME/bin/sbt/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$HOME/bin/play-2.2.2:$HOME/.rbenv/bin:/usr/local/heroku/bin:$HOME/Upworthy/plot/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$HOME/.rbenv/bin:$GOPATH/bin:$PATH"
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export PYTHONDONTWRITEBYTECODE=true
 export GOPATH="$HOME/go"
 
@@ -29,10 +26,14 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach-session -t"
 alias tn="tmux new-session -n"
 alias tm="tmux"
+alias vim="nvim"
+alias nvc="nvim ~/.config/nvim/init.vim"
 
 alias rstart="rm -rf tmp/cache; npm install; bundle install; be rails server"
 alias rtest="rm -rf tmp/cache; npm install; bundle install && bundle exec rake spec"
 alias rtestjs="bundle install && bundle exec rake spec:javascript"
+alias ct="ctags -R ."
+alias smartsync="~/stripe/pay-server/scripts/smartsync/smartsync"
 
 setopt no_share_history
 setopt no_correct
@@ -46,9 +47,6 @@ unsetopt correct_all
 __git_files () {
   _wanted files expl 'local files' _files
 }
-
-source "$HOME/.aws.keys.sh"
-source "$HOME/.heroku.keys.sh"
 
 export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
