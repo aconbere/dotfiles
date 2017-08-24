@@ -50,7 +50,6 @@ precmd() {
 unsetopt correct_all
 setopt prompt_subst
 setopt append_history
-setopt no_share_history
 setopt no_correct
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
