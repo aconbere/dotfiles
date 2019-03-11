@@ -6,3 +6,4 @@ bundle
 *.pyc
 .xmonad/xmonad-x86_64-linux
 nvim/plugged
+nvim/autoload/plug.vim.old
