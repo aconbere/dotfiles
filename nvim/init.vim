@@ -22,18 +22,27 @@ Plug 'bogado/file-line'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'rodjek/vim-puppet'
+Plug 'milkypostman/vim-togglelist'
+Plug 'racer-rust/vim-racer'
 call plug#end()
 
-set gdefault " %s///g by default!
+" %s///g by default!
+set gdefault
 set ignorecase
-set smartcase " only ignore case if all lower case
+" only ignore case if all lower case
+set smartcase
 set wildmode=list:longest
-set hidden " hide buffers instead of closing them
+" hide buffers instead of closing them
+set hidden
 set ruler
-set history=1000 " remember more commands and search history
-set undolevels=1000 " use many muchos levels of undo
+" remember more commands and search history
+set history=1000
+" use many muchos levels of undo
+set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set title " change the terminal's title
+" change the terminal's title
+set title
 set mouse=i
 set nobackup
 set backupdir^=~/.vimswap
@@ -52,51 +61,36 @@ let re=1
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Make shift tab to real tabs since tab is mapped to CTRL
 inoremap <S-Tab> <C-V><Tab>
+
+" rotate current window through buffers (next)
 nnoremap <leader>n :bn<CR>
+" rotate current window through buffers (previous)
 nnoremap <leader>m :bp<CR>
-" yank with ,y to the system clipboard
+
+" yank with ,c to the system clipboard
 vnoremap <silent> <leader>c "+y
 
 " fuzzy find files
 nnoremap <silent> <leader>, :Files<CR>
 
-map <F7> mzgg=G`z
+" fix issue where C-h is captured as backspace but really you want to move
+" buffers
 nmap <BS> <C-W>h
+" Move cursor between buffers
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-tnoremap <Esc> <C-\><C-n>
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 nmap <F8> :TagbarToggle<CR>
 
 let g:rainbow_active = 1
 let NERDTreeIgnore=['\.pyc', '\.hi', '\.o', '\.beam']
-let g:clojure_fuzzy_indent = 1
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^fnk', '^dfnk']
-let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-autocmd! BufWritePost * Neomake
+" run neomake on buffer write
+autocmd! BufWritePost *.go Neomake
+autocmd! BufWritePost *.rs Neomake cargo

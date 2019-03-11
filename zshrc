@@ -8,8 +8,10 @@ export JAVA_HOME=`/usr/libexec/java_home`
 export EDITOR="nvim"
 export PYTHONDONTWRITEBYTECODE=true
 export GOPATH="$HOME/go"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$HOME/.rbenv/bin:$GOPATH/bin:$PATH"
+PATH="$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$GOPATH/bin:$PATH"
+export LIBRARY_PATH="/usr/local/lib:$LIBRARY_PATH"
 
 alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
@@ -26,6 +28,7 @@ alias rtest="rm -rf tmp/cache; npm install; bundle install && bundle exec rake s
 alias rtestjs="bundle install && bundle exec rake spec:javascript"
 alias ct="ctags -R ."
 alias smartsync="~/stripe/pay-server/scripts/smartsync/smartsync"
+alias gopiori="cd ~/go/src/git.corp.stripe.com/apiori/gopiori"
 
 bindkey -e
 autoload -Uz compinit promptinit up-line-or-beginning-search down-line-or-beginning-search vcs_info
@@ -49,8 +52,8 @@ precmd() {
 
 unsetopt correct_all
 setopt prompt_subst
-setopt append_history
 setopt no_correct
+setopt append_history
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
@@ -68,7 +71,14 @@ __git_files () {
 export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
+# Setup rbenv
 eval "$(rbenv init -)"
+
+# Setup direnv
 eval "$(direnv hook zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/stripe/space-commander/bin/sc-aliases
+
+# Set up nodenv
+eval "$(nodenv init -)"
