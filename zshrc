@@ -1,51 +1,66 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+HISTFILE=~/.zsh_history
+SAVEHIST=100000
+HISTSIZE=100000
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="aconbere"
 export CFLAGS="-Wall"
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-PATH="$HOME/bin:$HOME/.cabal/bin:$HOME/Packages/android/sdk/tools:$HOME/Packages/android/sdk/platform-tools:$PATH"
-
-export EDITOR="vim"
+export EDITOR="nvim"
 export PYTHONDONTWRITEBYTECODE=true
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-keychain ~/.ssh/id_rsa
-. ~/.keychain/$HOST-sh
+PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH"
+PATH="$GOPATH/bin:$PATH"
+PATH="$HOME/Packages/wla-dx/binaries:$PATH"
 
 alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
 alias screen="screen -U"
-alias ack='ack-grep'
-alias archspace='cd ~/Projects/scala/archspace'
+alias tmux="TERM=screen-256color-bce tmux -u -2"
+alias tl="tmux list-sessions"
+alias ta="tmux attach-session -t"
+alias tn="tmux new-session -n"
+alias tm="tmux"
+alias vim="nvim"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias ct="ctags -R ."
 
-export NODE_PATH=/usr/local/lib/node_modules
-export ANDROID_HOME=$HOME/Packages/android/sdk
-GOROOT="$HOME/Packages/go"
-GOARCH="amd64"
-GOOS="linux"
+bindkey -e
+autoload -Uz compinit promptinit up-line-or-beginning-search down-line-or-beginning-search vcs_info
+promptinit
+compinit
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/vert_wrapper
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
-setopt no_share_history
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '!'
+zstyle ':vcs_info:*' unstagedstr '?'
+zstyle ':vcs_info:*' formats '[%b]%c%F{red}%u%F{white}'
+
+precmd() {
+    vcs_info
+}
+
+unsetopt correct_all
+setopt prompt_subst
 setopt no_correct
+setopt append_history
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
+setopt inc_append_history share_history
 setopt extended_history
 setopt bang_hist
-# setopt vi
-unsetopt correct_all
+
+PROMPT='%F{red}<%F{green}%n%F{white}:%F{yellow}%~%F{red}>%F{white}%b
+${vcs_info_msg_0_}%f%B %#%b '
+
+__git_files () {
+  _wanted files expl 'local files' _files
+}
+
+export CLICOLOR=1
+export LSCOLORS=dxfxcxdxbxegedabagacad
