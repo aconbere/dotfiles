@@ -1,3 +1,0 @@
-directory = /home/aconbere/Torrents/completed/
-schedule = watch_directory,5,5,load_start=/home/aconbere/Torrents/*.torrent
-schedule = untied_directory,5,5,stop_untied=
