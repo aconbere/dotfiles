@@ -9,8 +9,11 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH"
-PATH="$GOPATH/bin:$PATH"
 PATH="$HOME/Packages/wla-dx/binaries:$PATH"
+PATH="$HOME/Packages/avr8-gnu-toolchain-linux_x86_64/bin:$PATH"
+
+PATH="/usr/local/go/bin:$PATH"
+PATH="$GOPATH/bin:$PATH"
 
 alias profile="vim ~/.zshrc"
 alias update="source ~/.zshrc"
@@ -19,15 +22,17 @@ alias tmux="TERM=screen-256color-bce tmux -u -2"
 alias tl="tmux list-sessions"
 alias ta="tmux attach-session -t"
 alias tn="tmux new-session -n"
-alias tm="tmux"
 alias vim="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
-alias ct="ctags -R ."
+alias be="bundle exec"
+alias blog="cd ~/Projects/blog"
+alias blog-compose="blog; be jekyll compose"
 
 bindkey -e
 autoload -Uz compinit promptinit up-line-or-beginning-search down-line-or-beginning-search vcs_info
 promptinit
 compinit
+
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
@@ -64,3 +69,7 @@ __git_files () {
 
 export CLICOLOR=1
 export LSCOLORS=dxfxcxdxbxegedabagacad
+
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

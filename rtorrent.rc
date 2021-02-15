@@ -1,0 +1,12 @@
+directory=/home/aconbere/Downloads
+session=/home/aconbere/Torrents
+min_peers=50
+max_peers=80
+max_uploads=2
+download_rate=0
+upload_rate=50
+port_range=60125-64125
+check_hash=yes
+dht=auto
+peer_exchange=yes
+
