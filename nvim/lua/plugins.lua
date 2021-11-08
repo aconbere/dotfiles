@@ -13,13 +13,17 @@ vim.cmd([[
 require('nightfox').load()
 
 require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use 'bogado/file-line'
+    use 'hrsh7th/nvim-cmp'
 
     use 'ayu-theme/ayu-vim'
     use 'tpope/vim-vividchalk'
     use 'shaunsingh/solarized.nvim'
     use 'EdenEast/nightfox.nvim'
+
+    use '~/projects/test.nvim'
 
     use {
         'nvim-telescope/telescope.nvim',

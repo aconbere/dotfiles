@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
   ["nvim-fzf"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-fzf",
@@ -104,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -118,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["test.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/test.nvim",
+    url = "/Users/anders/projects/test.nvim"
   },
   ["vim-vividchalk"] = {
     loaded = true,
