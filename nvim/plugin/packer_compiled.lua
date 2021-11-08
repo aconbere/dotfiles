@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/fzf-lua",
     url = "https://github.com/ibhagwan/fzf-lua"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-fzf"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-fzf",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["solarized.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/solarized.nvim",
+    url = "https://github.com/shaunsingh/solarized.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

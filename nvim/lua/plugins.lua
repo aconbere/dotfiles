@@ -9,11 +9,17 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function()
+-- vim.cmd [[colorscheme solarized]]
+require('nightfox').load()
+
+require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'bogado/file-line'
+
     use 'ayu-theme/ayu-vim'
     use 'tpope/vim-vividchalk'
+    use 'shaunsingh/solarized.nvim'
+    use 'EdenEast/nightfox.nvim'
 
     use {
         'nvim-telescope/telescope.nvim',

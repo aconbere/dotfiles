@@ -1,14 +1,22 @@
-local stl = {
+vim.o.statusline = table.concat({
+  -- full path to file in buffer
   '%F',
+  -- modified flag
   '%m',
+  -- readonly flag
   '%r',
+  -- help flag
   '%h',
+  -- preview flag
   '%w',
+  -- number of lines
   '[%L]',
-  '[%{&ff}]',
+  -- current fileformat
+  -- '[%{&ff}]',
+  -- current syntax
   '%y',
-  '[%p%%]',
+  -- % percentage into file
+  -- '[%p%%]',
+  -- current line, current column
   '[%04l,%04v]',
-}
-
-vim.o.statusline = table.concat(stl);
+})

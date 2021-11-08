@@ -34,5 +34,3 @@ o.shiftwidth = 4
 o.tabstop = 4
 o.expandtab = true
 o.termguicolors = true
-
-vim.cmd [[colorscheme vividchalk]]
