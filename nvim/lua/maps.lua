@@ -29,4 +29,3 @@ map('n', '<C-h>', '<C-w>h', options);
 map('n', '<C-j>', '<C-w>j', options);
 map('n', '<C-k>', '<C-w>k', options);
 map('n', '<C-l>', '<C-w>l', options);
-

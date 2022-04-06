@@ -1,7 +1,11 @@
+-- global options
 local o = vim.o
+-- window options
 local wo = vim.wo
+-- buffer options
 local bo = vim.bo
 
+vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
 o.completeopt = "menuone,noselect"
 
 -- %s///g by default!
@@ -29,8 +33,9 @@ o.mouse = "i"
 o.backup = false
 o.dir = "/tmp"
 
-o.softtabstop = 4
-o.shiftwidth = 4
-o.tabstop = 4
-o.expandtab = true
 o.termguicolors = true
+
+bo.softtabstop = 4
+o.shiftwidth = 4
+bo.tabstop = 4
+bo.expandtab = true

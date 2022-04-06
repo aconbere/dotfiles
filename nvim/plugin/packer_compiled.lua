@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/file-line",
     url = "https://github.com/bogado/file-line"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["fzf-lua"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/fzf-lua",
@@ -138,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/vim-vividchalk",
     url = "https://github.com/tpope/vim-vividchalk"
+  },
+  ["zig.vim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/zig.vim",
+    url = "https://github.com/ziglang/zig.vim"
   }
 }
 

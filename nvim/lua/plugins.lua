@@ -25,6 +25,10 @@ require('packer').startup(function()
 
     use '~/projects/test.nvim'
 
+    use 'mhartington/formatter.nvim'
+
+    use 'ziglang/zig.vim'
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
@@ -40,3 +44,27 @@ require('packer').startup(function()
         }
     }
 end)
+
+local prettier = function()
+    return {
+        exe = "prettier",
+        args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
+        stdin = true
+    }
+end
+
+require('formatter').setup({
+  filetype = {
+    javascript = {prettier},
+    javascriptreact = {prettier},
+    typescript = {prettier},
+    typescriptreact = {prettier},
+  }
+})
+
+vim.api.nvim_exec([[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx, FormatWrite
+augroup END
+]], true)
