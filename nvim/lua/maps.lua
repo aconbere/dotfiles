@@ -8,6 +8,8 @@ voptions = {
     silent = true
 }
 
+
+map('n', ';', ':', options)
 map('n', '<leader>n', ':bnext<cr>', options)
 map('n', '<leader>p', ':bprev<cr>', options)
 

@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -57,7 +62,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -74,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
+  ["editorconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/editorconfig.nvim",
+    url = "https://github.com/gpanders/editorconfig.nvim"
+  },
   ["file-line"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/file-line",
@@ -83,11 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
-  },
-  ["fzf-lua"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/fzf-lua",
-    url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -99,20 +104,10 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-fzf"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-fzf",
-    url = "https://github.com/vijaymarupudi/nvim-fzf"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -134,28 +129,26 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["test.nvim"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/test.nvim",
-    url = "/Users/anders/projects/test.nvim"
-  },
   ["vim-vividchalk"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/vim-vividchalk",
     url = "https://github.com/tpope/vim-vividchalk"
-  },
-  ["zig.vim"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/zig.vim",
-    url = "https://github.com/ziglang/zig.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

@@ -9,62 +9,52 @@ vim.cmd([[
   augroup end
 ]])
 
--- vim.cmd [[colorscheme solarized]]
-require('nightfox').load()
+vim.cmd [[colorscheme nightfox]]
 
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use 'bogado/file-line'
     use 'hrsh7th/nvim-cmp'
+    use 'gpanders/editorconfig.nvim'
 
     use 'ayu-theme/ayu-vim'
     use 'tpope/vim-vividchalk'
     use 'shaunsingh/solarized.nvim'
     use 'EdenEast/nightfox.nvim'
 
-    use '~/projects/test.nvim'
-
     use 'mhartington/formatter.nvim'
 
-    use 'ziglang/zig.vim'
+    -- use 'ziglang/zig.vim'
 
     use {
         'nvim-telescope/telescope.nvim',
+        tag = '0.1.0',
         requires = {
             'nvim-lua/plenary.nvim'
         }
     }
-
-    use {
-        'ibhagwan/fzf-lua',
-        requires = {
-            'vijaymarupudi/nvim-fzf',
-            'kyazdani42/nvim-web-devicons'
-        }
-    }
 end)
 
-local prettier = function()
-    return {
-        exe = "prettier",
-        args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
-        stdin = true
-    }
-end
-
+-- NOTE: Need to install prettierd globally for these to work
+-- > npm install -g @fsouza/prettierd
 require('formatter').setup({
+  -- Enable or disable logging
+  logging = true,
+  -- Set the log level
+  log_level = vim.log.levels.INFO,
   filetype = {
-    javascript = {prettier},
-    javascriptreact = {prettier},
-    typescript = {prettier},
-    typescriptreact = {prettier},
+    javascript = {
+        require('formatter.filetypes.javascript').prettierd
+    },
+    javascriptreact = {
+        require('formatter.filetypes.javascriptreact').prettierd
+    },
+    typescript = {
+        require('formatter.filetypes.typescript').prettierd
+    },
+    typescriptreact = {
+        require('formatter.filetypes.typescriptreact').prettierd
+    },
   }
 })
-
-vim.api.nvim_exec([[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx, FormatWrite
-augroup END
-]], true)

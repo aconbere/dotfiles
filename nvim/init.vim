@@ -15,3 +15,10 @@ require('lsp')
 require('maps')
 require('statusline')
 EOF
+
+:colorscheme nightfox
+
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx, FormatWrite
+augroup END
