@@ -17,15 +17,8 @@ require('packer').startup(function()
     use 'bogado/file-line'
     use 'hrsh7th/nvim-cmp'
     use 'gpanders/editorconfig.nvim'
-
-    use 'ayu-theme/ayu-vim'
-    use 'tpope/vim-vividchalk'
-    use 'shaunsingh/solarized.nvim'
     use 'EdenEast/nightfox.nvim'
-
     use 'mhartington/formatter.nvim'
-
-    -- use 'ziglang/zig.vim'
 
     use {
         'nvim-telescope/telescope.nvim',

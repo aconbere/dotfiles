@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["ayu-vim"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/ayu-vim",
-    url = "https://github.com/ayu-theme/ayu-vim"
-  },
   ["editorconfig.nvim"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/editorconfig.nvim",
@@ -119,20 +114,10 @@ _G.packer_plugins = {
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["solarized.nvim"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/solarized.nvim",
-    url = "https://github.com/shaunsingh/solarized.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/anders/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-vividchalk"] = {
-    loaded = true,
-    path = "/Users/anders/.local/share/nvim/site/pack/packer/start/vim-vividchalk",
-    url = "https://github.com/tpope/vim-vividchalk"
   }
 }
 
