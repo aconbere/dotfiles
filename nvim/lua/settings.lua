@@ -39,3 +39,4 @@ bo.softtabstop = 4
 o.shiftwidth = 4
 bo.tabstop = 4
 bo.expandtab = true
+bo.textwidth = 72
